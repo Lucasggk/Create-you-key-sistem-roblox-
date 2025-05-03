@@ -121,13 +121,14 @@ cratesys:AddInput("", {
 copysys:AddButton({
     Title = "Copiar Configuração",
     Callback = function()
-        local gc = 
+        local gc = {
             "_G().uiname = \"" .. tostring(name_ui) .. "\"\n" ..  
             "_G().subname = \"" .. tostring(subname_ui) .. "\"\n" ..
             "_G().sizeui = " .. tonumber(size_ui) .. "\n" ..
             "_G().tabsizeui = " .. tonumber(tabsize_ui) .. "\n" ..
             "_G().keylink = \"" .. tostring(linkkey_key) .. "\"\n" ..
             "_G().crrkey = \"" .. tostring(ccrkey_key) .. "\""
+            }
         setclipboard(gc)
     end
 })
