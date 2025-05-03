@@ -137,7 +137,7 @@ copysys:AddButton({
             "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",
             "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",
             "_G.ldscript = '" .. tostring(script_load) .. "',",
-            '',
+            'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistemBR.lua"))()',
         }
             
         local gc = table.concat(G, "\n")
