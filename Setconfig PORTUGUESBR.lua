@@ -114,7 +114,7 @@ cratesys:AddInput("", {
     end
 })
 
-local section = cratesys:AddSection("Script executado após chave correta\nCuidado com quebras de linha, há chance das aspas não fecharem corretamente")
+local section = cratesys:AddSection("Script executado após chave correta\nCuidado com quebras de linha, há\nChance das aspas não fecharem corretamente")
 cratesys:AddInput("", {
     Title = "Script para carregar após chave:",
     Default = "",
