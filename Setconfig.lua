@@ -63,18 +63,30 @@ local Dropdown = cratesys:AddDropdown("", {
 })
 
 Dropdown:OnChanged(function(value)
-    size_ui = value
+     if value == "large" then
+        size_ui = {350, 250}
+    elseif value == "medium" then
+        size_ui = {500, 350}
+    elseif value == "small" then
+        size_ui = {650, 450}
+     end
 end)
 
 local Dropdown = cratesys:AddDropdown("", {
     Title = "select TabWidth size", 
-    Values = {"small" "medium" "large" },
+    Values = {"small", "medium", "large" },
     Multi = false,
     Default = "medium"
 })
 
 Dropdown:OnChanged(function(value)
-    tabsize_ui = value
+        if value == "large" then
+        tabsize_ui = 120
+    elseif value == "medium" then
+        tabsize_ui = 150
+    elseif value == "small" then
+        tabsize_ui = 180
+        end
 end)
 
 local section = cratesys:AddSection("key Settings")
