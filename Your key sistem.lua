@@ -1,3 +1,5 @@
+                --[[version EUA]]--
+
 local name = _G.uiname 
 local sname = _G.subname 
 local s1 = _G.sizeui1
