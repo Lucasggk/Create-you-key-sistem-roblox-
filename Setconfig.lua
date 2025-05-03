@@ -28,7 +28,7 @@ infosys:AddParagraph({
     Content = " 1) you will put your vertises or lootlabs link\n\n I recommend using linkvertise.com (much better)\n\n create a link with text if you use linkvertise.com, the message there must be short without spaces\n\n example: ''key1739'' or ''word_word_word''\n\n 2) in the second textbox put the script key"
   })
 
-local nome_ui = ""
+local name_ui = ""
 local subname_ui = ""
 local size_ui = ""
 local tabsize_ui = ""
@@ -44,7 +44,7 @@ cratesys:AddInput("", {
     Placeholder = "UI name here ",
     Numeric = false,
     Callback = function(Value)
-        nome_ui = Value
+        name_ui = Value
     end
 })
 
@@ -54,7 +54,7 @@ cratesys:AddInput("", {
     Placeholder = "Subname UI here ",
     Numeric = false,
     Callback = function(Value)
-        subnome_ui = Value
+        subname_ui = Value
     end
 })
 
@@ -115,3 +115,19 @@ cratesys:AddInput("", {
         crrkey_key = Value
     end
 })
+
+
+copysys:AddButton({
+        Title = "copy your script",
+        Description = "create the keysystem script according to your settings in ''CREATE SYS''",
+        Callback = function()
+            setclipboard(
+                _G().uiname = tostring(name_ui)
+                _G().subname = tostring(subname_ui)
+                _G().sizeui = tonumber(size_ui)
+                _G().tabsizeui = tonumber(tabsize_ui)
+                _G().keylink = tostring(linkkey_key)
+                _G().crrkey = tostring(ccrkey_key)
+
+            end
+       
