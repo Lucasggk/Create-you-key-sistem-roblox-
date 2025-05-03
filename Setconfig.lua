@@ -70,6 +70,7 @@ Dropdown:OnChanged(function(value)
     elseif value == "small" then
         size_ui = {650, 450}
      end
+        print("size_ui: ".. size_ui)
 end)
 
 local Dropdown = cratesys:AddDropdown("", {
@@ -87,6 +88,7 @@ Dropdown:OnChanged(function(value)
     elseif value == "small" then
         tabsize_ui = 180
         end
+        print("tabsize_ui: ".. tabsize_ui)
 end)
 
 local section = cratesys:AddSection("key Settings")
