@@ -121,14 +121,18 @@ cratesys:AddInput("", {
 copysys:AddButton({
     Title = "Copiar Configuração",
     Callback = function()
-        local gc = {
-            "_G().uiname = \"" .. tostring(name_ui) .. "\"\n" ..  
-            "_G().subname = \"" .. tostring(subname_ui) .. "\"\n" ..
-            "_G().sizeui = " .. tonumber(size_ui) .. "\n" ..
-            "_G().tabsizeui = " .. tonumber(tabsize_ui) .. "\n" ..
-            "_G().keylink = \"" .. tostring(linkkey_key) .. "\"\n" ..
-            "_G().crrkey = \"" .. tostring(ccrkey_key) .. "\""
+        local G = {                
+        "_G().uiname = \"" .. tostring(name_ui) .. "\"",       -- Concatena o valor real
+        "_G().subname = \"" .. tostring(subname_ui) .. "\"",    -- Concatena o valor real
+        "_G().sizeui = " .. tonumber(size_ui),                  -- Número não precisa de aspas
+        "_G().tabsizeui = " .. tonumber(tabsize_ui),            -- Número não precisa de aspas
+        "_G().keylink = \"" .. tostring(linkkey_key) .. "\"",   -- Concatena o valor real
+        "_G().crrkey = \"" .. tostring(ccrkey_key) .. "\"",     -- Concatena o valor real
             }
+            
+
+        local gc = table.concat(G, "\n")
+
         setclipboard(gc)
     end
 })
