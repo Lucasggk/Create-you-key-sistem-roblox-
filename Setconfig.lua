@@ -125,7 +125,8 @@ copysys:AddButton({
         local G = {                
         "_G().uiname = \"" .. tostring(name_ui) .. "\"",       -- Concatena o valor real
         "_G().subname = \"" .. tostring(subname_ui) .. "\"",    -- Concatena o valor real
-        "_G().sizeui = " .. tonumber(size_ui),                  -- Número não precisa de aspas
+        "_G().sizeui1 = " .. tonumber(size_ui1),                  -- Número não precisa de aspas
+        "_G().sizeui2 = " .. tonumber(size_ui2),                  -- Número não precisa de aspas
         "_G().tabsizeui = " .. tonumber(tabsize_ui),            -- Número não precisa de aspas
         "_G().keylink = \"" .. tostring(linkkey_key) .. "\"",   -- Concatena o valor real
         "_G().crrkey = \"" .. tostring(ccrkey_key) .. "\"",     -- Concatena o valor real
