@@ -5,6 +5,7 @@ local s2 = _G.sizeui2
 local ts = _G.tabsizeui 
 local kl = _G.keylink 
 local ck = _G.crrkey 
+local script_load = _G.ldscript
 
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
@@ -111,7 +112,8 @@ keyTab:AddButton({
             })
             task.wait(3)
             Fluent:Destroy()
-            -- Ainda falta implementar o sistema do loadstring
+            script_load
+            
         else
             Fluent:Notify({
                 Title = "Error",
@@ -152,5 +154,5 @@ if isKeySaved() and autoLoadEnabled then
     })
     task.wait(3)
     Fluent:Destroy()
-    -- Implementar loadstring aqui
+    script_load
 end
