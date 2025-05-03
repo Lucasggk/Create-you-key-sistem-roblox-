@@ -69,12 +69,11 @@ local Dropdown1 = cratesys:AddDropdown("", {
 
 Dropdown1:OnChanged(function(value)
      if value == "small: 350, 250" then
-        size_ui1 = 350 and size_ui2 = 250
+        size_ui1 = 350; size_ui2 = 250
     elseif value == "medium: 500, 350" then
-        size_ui1 = and size_ui2 = 350
+        size_ui1 = 500; size_ui2 = 350
     elseif value == "large: 650, 450" then
-        size_ui1 = 650 and size_ui2 = 450
-
+        size_ui1 = 650; size_ui2 = 450
      end
         print("size_ui: ".. size_ui1.. ", ".. size_ui2)
 end)
