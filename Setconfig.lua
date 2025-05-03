@@ -129,7 +129,7 @@ copysys:AddButton({
         "_G().sizeui2 = " .. tonumber(size_ui2),                  -- Número não precisa de aspas
         "_G().tabsizeui = " .. tonumber(tabsize_ui),            -- Número não precisa de aspas
         "_G().keylink = \"" .. tostring(linkkey_key) .. "\"",   -- Concatena o valor real
-        "_G().crrkey = \"" .. tostring(ccrkey_key) .. "\"",     -- Concatena o valor real
+        "_G().crrkey = \"" .. tostring(crrkey_key) .. "\"",     -- Concatena o valor real
             }
             
 
