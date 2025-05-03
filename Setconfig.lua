@@ -59,7 +59,7 @@ local Dropdown1 = cratesys:AddDropdown("", {
     Title = "select ui size ", 
     Values = {"small: 350, 250", "medium: 500, 350", "large: 650, 450" },
     Multi = false,
-    Default = "medium"
+    Default = "medium: 500, 350"
 })
 
 Dropdown1:OnChanged(function(value)
@@ -77,7 +77,7 @@ local Dropdown2 = cratesys:AddDropdown("", {
     Title = "select TabWidth size", 
     Values = {"small: 120", "medium: 150", "large: 180" },
     Multi = false,
-    Default = "medium"
+    Default = "medium: 150"
 })
 
 Dropdown2:OnChanged(function(value)
