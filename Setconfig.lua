@@ -142,7 +142,7 @@ copysys:AddButton({
         "_G.tabsizeui = " .. tonumber(tabsize_ui),            -- Número não precisa de aspas
         "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",   -- Concatena o valor real
         "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",     -- Concatena o valor real
-        "_G.ldscript = '" .. tostring(script_load) .. "',"
+        "_G.ldscript = '" .. tostring(script_load) .. "',",
         'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistem.lua"))()',
                     }
             
