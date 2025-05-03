@@ -57,7 +57,7 @@ cratesys:AddInput("", {
 
 local Dropdown = cratesys:AddDropdown("", {
     Title = "select ui size ", 
-    Values = {"small" "medium" "large" },
+    Values = {"small", "medium", "large" },
     Multi = false,
     Default = "medium"
 })
@@ -70,7 +70,7 @@ Dropdown:OnChanged(function(value)
     elseif value == "small" then
         size_ui = {650, 450}
      end
-        print("size_ui: ".. size_ui)
+        print("size_ui: ".. size_ui[1] ..", ".. size_ui[2])
 end)
 
 local Dropdown = cratesys:AddDropdown("", {
