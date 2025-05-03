@@ -55,6 +55,7 @@ cratesys:AddInput("", {
     Numeric = false,
     Callback = function(Value)
         subname_ui = Value
+        print(subname_ui)
     end
 })
 
@@ -117,17 +118,3 @@ cratesys:AddInput("", {
 })
 
 
-copysys:AddButton({
-        Title = "copy your script",
-        Description = "create the keysystem script according to your settings in ''CREATE SYS''",
-        Callback = function()
-            setclipboard(
-                _G().uiname = tostring(name_ui)
-                _G().subname = tostring(subname_ui)
-                _G().sizeui = tonumber(size_ui)
-                _G().tabsizeui = tonumber(tabsize_ui)
-                _G().keylink = tostring(linkkey_key)
-                _G().crrkey = tostring(ccrkey_key)
-
-            end
-       
