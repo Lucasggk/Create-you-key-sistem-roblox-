@@ -28,5 +28,26 @@ info:AddParagraph({
     content = "1) you will put your vertises or lootlabs link\nI recommend using linkvertise.com (much better)\ncreate a link with text if you use linkvertise.com, the message there must be short without spaces\nexample: ''key1739'' or ''word_word_word''\n\n2) in the second textbox put the script key"
   })
 
+local nome_ui = ""
+local subname_ui = ""
 
+infosys:AddInput("", {
+    Title = "ui name",
+    Default = "",
+    Placeholder = "UI name here ",
+    Numeric = false,
+    Callback = function(Value)
+        nome_ui = Value
+    end
+})
+
+infosys:AddInput("", {
+    Title = "subtitle ui name",
+    Default = "",
+    Placeholder = "Subname UI here ",
+    Numeric = false,
+    Callback = function(Value)
+        subnome_ui = Value
+    end
+})
 
