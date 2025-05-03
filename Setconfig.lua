@@ -30,7 +30,8 @@ infosys:AddParagraph({
 
 local name_ui = ""
 local subname_ui = ""
-local size_ui = ""
+local size_ui1 = ""
+local size_ui2 = ""
 local tabsize_ui = ""
 local linkkey_key = ""
 local crrkey_key = ""
@@ -68,13 +69,14 @@ local Dropdown1 = cratesys:AddDropdown("", {
 
 Dropdown1:OnChanged(function(value)
      if value == "small: 350, 250" then
-        size_ui = {350, 250}
+        size_ui1 = 350 and size_ui2 = 250
     elseif value == "medium: 500, 350" then
-        size_ui = {500, 350}
+        size_ui1 = and size_ui2 = 350
     elseif value == "large: 650, 450" then
-        size_ui = {650, 450}
+        size_ui1 = 650 and size_ui2 = 450
+
      end
-        print("size_ui: ".. size_ui[1] ..", ".. size_ui[2])
+        print("size_ui: ".. size_ui1.. ", ".. size_ui2)
 end)
 
 local Dropdown2 = cratesys:AddDropdown("", {
