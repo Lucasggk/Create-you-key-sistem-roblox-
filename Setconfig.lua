@@ -35,6 +35,7 @@ local size_ui2 = ""
 local tabsize_ui = ""
 local linkkey_key = ""
 local crrkey_key = ""
+local script_load = ""
 
 
 local section = cratesys:AddSection("ui Settings")
@@ -115,6 +116,17 @@ cratesys:AddInput("", {
     Numeric = false,
     Callback = function(Value)
         crrkey_key = Value
+    end
+})
+
+local section = cratesys:AddSection("script executed after correct key ")
+cratesys:AddInput("", {
+    Title = "script to be loaded after key: ",
+    Default = "",
+    Placeholder = "put the script to be loaded ",
+    Numeric = false,
+    Callback = function(Value)
+        script_load = Value
     end
 })
 
