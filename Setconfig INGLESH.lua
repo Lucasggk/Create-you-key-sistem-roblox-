@@ -3,7 +3,7 @@ local Fluent = loadstring(Game:HttpGet("https://raw.githubusercontent.com/discoa
 
 local Window = Fluent:CreateWindow({
     Title = "create key system",
-    SubTitle = "made by Lucas",
+    SubTitle = "     made by Lucas",
     TabWidth = 145,
     Size = UDim2.fromOffset(550, 370),
     Acrylic = false,
