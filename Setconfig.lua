@@ -32,6 +32,9 @@ local nome_ui = ""
 local subname_ui = ""
 local size_ui = ""
 local tabsize_ui = ""
+local linkkey_key = ""
+local crrkey_key = ""
+
 
 local section = cratesys:AddSection("ui Settings")
 
@@ -93,3 +96,22 @@ end)
 
 local section = cratesys:AddSection("key Settings")
 
+cratesys:AddInput("", {
+    Title = "your ads key link",
+    Default = "",
+    Placeholder = "put your ads key link here  ",
+    Numeric = false,
+    Callback = function(Value)
+        linkkey_key = Value
+    end
+})
+
+cratesys:AddInput("", {
+    Title = "correct key for your system ",
+    Default = "",
+    Placeholder = "put your correct key here  ",
+    Numeric = false,
+    Callback = function(Value)
+        crrkey_key = Value
+    end
+})
