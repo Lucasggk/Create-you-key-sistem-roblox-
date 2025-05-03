@@ -19,7 +19,7 @@ local copysys = Window:AddTab({ Title = "copy syskey", Icon = "list" })
 local section = infosys:AddSection("how to use")
 infosys:AddParagraph({
     Title = " Create gui ",
-    Content = "1) you will put the name of the UI in the first textbox\n\n2) You will place the UI replacement in the second textbox\n\n3) You will choose the size of the UI in the Dropdown "
+    Content = "1) you will put the name of the UI in the first textbox\n\n2) You will place the UI replacement in the second textbox\n\n 3) You will choose the size of the UI in the Dropdown "
   })
 
 local section = infosys:AddSection("how to conf")
