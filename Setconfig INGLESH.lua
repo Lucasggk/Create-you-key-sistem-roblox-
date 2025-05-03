@@ -134,16 +134,16 @@ cratesys:AddInput("", {
 
 
 copysys:AddButton({
-    Title = "Copiar Configuração",
+    Title = "Copy Settings",
     Callback = function()
         local G = {                
-        "_G.uiname = \"" .. tostring(name_ui) .. "\"",       -- Concatena o valor real
-        "_G.subname = \"" .. tostring(subname_ui) .. "\"",    -- Concatena o valor real
-        "_G.sizeui1 = " .. tonumber(size_ui1),                  -- Número não precisa de aspas
-        "_G.sizeui2 = " .. tonumber(size_ui2),                  -- Número não precisa de aspas
-        "_G.tabsizeui = " .. tonumber(tabsize_ui),            -- Número não precisa de aspas
-        "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",   -- Concatena o valor real
-        "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",     -- Concatena o valor real
+        "_G.uiname = \"" .. tostring(name_ui) .. "\"",       
+        "_G.subname = \"" .. tostring(subname_ui) .. "\"",    
+        "_G.sizeui1 = " .. tonumber(size_ui1),                  
+        "_G.sizeui2 = " .. tonumber(size_ui2),                  
+        "_G.tabsizeui = " .. tonumber(tabsize_ui),            
+        "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",   
+        "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",    
         "_G.ldscript = '" .. tostring(script_load) .. "',",
         'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistemEUA.lua"))()',
                     }
