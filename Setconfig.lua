@@ -30,6 +30,10 @@ infosys:AddParagraph({
 
 local nome_ui = ""
 local subname_ui = ""
+local size_ui = ""
+local tabsize_ui ""
+
+local section = cratesys:AddSection("ui Settings")
 
 cratesys:AddInput("", {
     Title = "ui name",
@@ -50,4 +54,28 @@ cratesys:AddInput("", {
         subnome_ui = Value
     end
 })
+
+local Dropdown = cratesys:AddDropdown("", {
+    Title = "select ui size ", 
+    Values = {"small" "medium" "large" },
+    Multi = false,
+    Default = "medium"
+})
+
+Dropdown:OnChanged(function(value)
+    size_ui = value
+end)
+
+local Dropdown = cratesys:AddDropdown("", {
+    Title = "select TabWidth size", 
+    Values = {"small" "medium" "large" },
+    Multi = false,
+    Default = "medium"
+})
+
+Dropdown:OnChanged(function(value)
+    tabsize_ui = value
+end)
+
+local section = cratesys:AddSection("key Settings")
 
