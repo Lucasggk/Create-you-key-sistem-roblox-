@@ -10,6 +10,34 @@ local script_load = _G.ldscript
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
 
+
+local function executeScript()
+    local script_load = _G.ldscript or ""
+    
+    if script_load == "" then 
+        warn("No script provided in _G.ldscript")
+        return 
+    end
+
+    local success, result = pcall(function()
+        return loadstring(script_load)()
+    end)
+    
+    if not success then
+        
+        if typeof(Notify) == "function" then
+            Notify({
+                Title = "SCRIPT ERROR",
+                Message = tostring(result):sub(1, 100),
+                Duration = 5
+            })
+        else
+            warn("[ERROR]", result)
+        end
+    end
+end
+
+
 local correct_key = ck
 
 local function isKeySaved()
@@ -112,7 +140,7 @@ keyTab:AddButton({
             })
             task.wait(3)
             Fluent:Destroy()
-            script_load
+            executescript()
             
         else
             Fluent:Notify({
@@ -154,5 +182,5 @@ if isKeySaved() and autoLoadEnabled then
     })
     task.wait(3)
     Fluent:Destroy()
-    script_load
+    executescript()
 end
