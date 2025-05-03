@@ -129,7 +129,7 @@ keyTab:AddButton({
 keyTab:AddButton({
     Title = "Get key",
     Callback = function()
-        setclipboard("https://link-center.net/1345506/sistema-de-key-scripts")
+        setclipboard(kl)
         Fluent:Notify({
             Title = "link copied! ",
             Content = "The link to get the key has been copied to your clipboard! ",
