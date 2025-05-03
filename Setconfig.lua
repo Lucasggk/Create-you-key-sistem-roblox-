@@ -31,7 +31,7 @@ infosys:AddParagraph({
 local nome_ui = ""
 local subname_ui = ""
 local size_ui = ""
-local tabsize_ui ""
+local tabsize_ui = ""
 
 local section = cratesys:AddSection("ui Settings")
 
@@ -55,37 +55,37 @@ cratesys:AddInput("", {
     end
 })
 
-local Dropdown = cratesys:AddDropdown("", {
+local Dropdown1 = cratesys:AddDropdown("", {
     Title = "select ui size ", 
-    Values = {"small", "medium", "large" },
+    Values = {"small: 350, 250", "medium: 500, 350", "large: 650, 450" },
     Multi = false,
     Default = "medium"
 })
 
-Dropdown:OnChanged(function(value)
-     if value == "large" then
+Dropdown1:OnChanged(function(value)
+     if value == "small: 350, 250" then
         size_ui = {350, 250}
-    elseif value == "medium" then
+    elseif value == "medium: 500, 350" then
         size_ui = {500, 350}
-    elseif value == "small" then
+    elseif value == "large: 650, 450" then
         size_ui = {650, 450}
      end
         print("size_ui: ".. size_ui[1] ..", ".. size_ui[2])
 end)
 
-local Dropdown = cratesys:AddDropdown("", {
+local Dropdown2 = cratesys:AddDropdown("", {
     Title = "select TabWidth size", 
-    Values = {"small", "medium", "large" },
+    Values = {"small: 120", "medium: 150", "large: 180" },
     Multi = false,
     Default = "medium"
 })
 
-Dropdown:OnChanged(function(value)
-        if value == "large" then
+Dropdown2:OnChanged(function(value)
+        if value == "small: 120" then
         tabsize_ui = 120
-    elseif value == "medium" then
+    elseif value == "medium: 150" then
         tabsize_ui = 150
-    elseif value == "small" then
+    elseif value == "large: 180" then
         tabsize_ui = 180
         end
         print("tabsize_ui: ".. tabsize_ui)
