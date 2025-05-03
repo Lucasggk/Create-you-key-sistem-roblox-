@@ -119,6 +119,7 @@ cratesys:AddInput("", {
     end
 })
 
+local section = cratesys:AddSection(" ")
 local section = cratesys:AddSection("script executed after correct key be\n careful with the break line, there\n is a chance that the ' ' will not close the script  ")
 local section = cratesys:AddSection(" ")
 cratesys:AddInput("", {
