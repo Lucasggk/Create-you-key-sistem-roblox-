@@ -119,7 +119,7 @@ cratesys:AddInput("", {
     end
 })
 
-local section = cratesys:AddSection("script executed after correct key\n be careful with the break line, there is a chance that the ' ' will not close the script  ")
+local section = cratesys:AddSection("script executed after correct key\n be careful with the break line,\nthere is a chance that the ' ' will not close the script  ")
 cratesys:AddInput("", {
     Title = "script to be loaded after key: ",
     Default = "",
