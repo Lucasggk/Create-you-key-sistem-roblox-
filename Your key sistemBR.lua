@@ -7,7 +7,7 @@ local s2 = _G.sizeui2
 local ts = _G.tabsizeui 
 local kl = _G.keylink 
 local ck = _G.crrkey 
-local sc = _G.ldscript
+local sc = tostring(_G.ldscript)
 
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
