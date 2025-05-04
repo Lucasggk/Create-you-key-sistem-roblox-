@@ -146,3 +146,12 @@ copysys:AddButton({
         setclipboard(gc)
     end
 })
+
+copysys:AddButton({
+    Title = "Carrega seu hub",
+    Callback = function()
+        loadstring((gc))()
+      end
+    }) 
+
+
