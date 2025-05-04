@@ -150,7 +150,7 @@ copysys:AddButton({
 copysys:AddButton({
     Title = "Carrega seu hub",
     Callback = function()
-        loadstring((gc))()
+        loadstring(gc)()
       end
     }) 
 
