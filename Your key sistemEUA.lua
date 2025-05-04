@@ -113,7 +113,7 @@ keyTab:AddButton({
             })
             task.wait(3)
             Fluent:Destroy()
-            pcall(loadstring(_G.ldscript[1]))
+            pcall(loadstring(_G.ldscript1))
         else
             Fluent:Notify({
                 Title = "Error",
@@ -154,5 +154,5 @@ if isKeySaved() and autoLoadEnabled then
     })
     task.wait(3)
     Fluent:Destroy()
-    pcall(loadstring(_G.ldscript[1])) 
+    pcall(loadstring(_G.ldscript1)) 
 end
