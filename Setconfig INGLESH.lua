@@ -144,7 +144,7 @@ copysys:AddButton({
         "_G.tabsizeui = " .. tonumber(tabsize_ui),            
         "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",   
         "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",    
-        "_G.ldscript = [[  " .. tostring(script_load) .. "  ]],",
+        "_G.ldscript = [[  " .. tostring(script_load) .. "  ]]",
         'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistemEUA.lua"))()',
                     }
             
