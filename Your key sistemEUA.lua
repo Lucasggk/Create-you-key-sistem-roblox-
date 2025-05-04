@@ -7,30 +7,9 @@ local s2 = _G.sizeui2
 local ts = _G.tabsizeui 
 local kl = _G.keylink 
 local ck = _G.crrkey 
-local script_load = _G.ldscript
  
 repeat task.wait() until game:IsLoaded()
 repeat task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
-
-
-local function exec()
-    if not script_load or script_load == "" then return end
-    
-    local success, err = pcall(function()
-        local fn = loadstring(script_load)
-        if fn then fn() end
-    end)
-    
-    if not success then
-        Fluent:Notify({
-            Title = "Script Error",
-            Content = "Failed to execute script: "..tostring(err):sub(1, 100),
-            Duration = 8,
-            Type = "error"
-        })
-        warn("Script Error:", err)
-    end
-end
 
 local correct_key = ck
 
@@ -134,7 +113,7 @@ keyTab:AddButton({
             })
             task.wait(3)
             Fluent:Destroy()
-            exec()
+            pcall(loadstring(_G.ldscript[1]))
         else
             Fluent:Notify({
                 Title = "Error",
@@ -175,5 +154,5 @@ if isKeySaved() and autoLoadEnabled then
     })
     task.wait(3)
     Fluent:Destroy()
-    exec() 
+    pcall(loadstring(_G.ldscript[1])) 
 end
