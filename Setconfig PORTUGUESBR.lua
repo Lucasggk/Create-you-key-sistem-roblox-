@@ -127,6 +127,8 @@ cratesys:AddInput("", {
     end
 })
 
+local gc = "" -- Define gc fora das funções, acessível por ambos
+
 copysys:AddButton({
     Title = "Copiar Configuração",
     Callback = function()
@@ -141,8 +143,8 @@ copysys:AddButton({
             "_G.ldscript = [[  " .. tostring(script_load) .. "  ]]",
             'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistemBR.lua"))()',
         }
-            
-        local gc = table.concat(G, "\n")
+
+        gc = table.concat(G, "\n") -- Atribui à variável global
         setclipboard(gc)
     end
 })
@@ -150,8 +152,10 @@ copysys:AddButton({
 copysys:AddButton({
     Title = "Carrega seu hub",
     Callback = function()
-        loadstring(tostring(gc))()
-      end
-    }) 
-
-
+        if gc and gc ~= "" then
+            loadstring(gc)()
+        else
+            warn("Configuração não copiada ainda!")
+        end
+    end
+})
