@@ -1,5 +1,5 @@
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/discoart/FluentPlus/refs/heads/main/release.lua", true))()
-
+ 
 local Window = Fluent:CreateWindow({
     Title = "Sistema de Chave",
     SubTitle = "     feito por Lucas",
