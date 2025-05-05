@@ -133,7 +133,7 @@ cratesys:AddInput("", {
 })
 
 
-local gc = "" 
+local gc = ""
 
 local function gerarGC()
     local G = {
@@ -163,6 +163,30 @@ copysys:AddButton({
 copysys:AddButton({
     Title = "Run Your Key System for Testing",
     Callback = function()
+        local camposVazios = {}
+
+        if name_ui == "" or name_ui == nil then
+            table.insert(camposVazios, "UI Name (name_ui)")
+        end
+        if subname_ui == "" or subname_ui == nil then
+            table.insert(camposVazios, "UI Subname (subname_ui)")
+        end
+        if crrkey_key == "" or crrkey_key == nil then
+            table.insert(camposVazios, "Current Key (crrkey_key)")
+        end
+        if linkkey_key == "" or linkkey_key == nil then
+            table.insert(camposVazios, "Key Link (linkkey_key)")
+        end
+
+        if #camposVazios > 0 then
+            Fluent:Notify({
+                Title = "Required fields are empty!",
+                Content = "Please fill in the following fields:\n" .. table.concat(camposVazios, "\n"),
+                Duration = 5
+            })
+            return
+        end
+
         local script = gerarGC()
         local sucesso, erro = pcall(function()
             loadstring(script)()
