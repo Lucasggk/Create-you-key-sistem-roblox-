@@ -137,6 +137,7 @@ local gc = ""
 
 local function gerarGC()
     local G = {
+        'local gc = ""',
         "_G.uiname = \"" .. tostring(name_ui) .. "\"",
         "_G.subname = \"" .. tostring(subname_ui) .. "\"",
         "_G.sizeui1 = " .. tonumber(size_ui1),
@@ -153,8 +154,32 @@ local function gerarGC()
 end
 
 copysys:AddButton({
-    Title = "Copy Key System Configuration",
+    Title = "Copy Key System Settings",
     Callback = function()
+        local emptyFields = {}
+
+        if name_ui == "" or name_ui == nil then
+            table.insert(emptyFields, "UI Name (name_ui)")
+        end
+        if subname_ui == "" or subname_ui == nil then
+            table.insert(emptyFields, "UI Subtitle (subname_ui)")
+        end
+        if crrkey_key == "" or crrkey_key == nil then
+            table.insert(emptyFields, "Current Key (crrkey_key)")
+        end
+        if linkkey_key == "" or linkkey_key == nil then
+            table.insert(emptyFields, "Key Link (linkkey_key)")
+        end
+
+        if #emptyFields > 0 then
+            Fluent:Notify({
+                Title = "Missing Required Fields!",
+                Content = "Please fill in the following fields:\n" .. table.concat(emptyFields, "\n"),
+                Duration = 5
+            })
+            return
+        end
+
         gerarGC()
         setclipboard(gc)
     end
@@ -163,36 +188,36 @@ copysys:AddButton({
 copysys:AddButton({
     Title = "Run Your Key System for Testing",
     Callback = function()
-        local camposVazios = {}
+        local emptyFields = {}
 
         if name_ui == "" or name_ui == nil then
-            table.insert(camposVazios, "UI Name (name_ui)")
+            table.insert(emptyFields, "UI Name (name_ui)")
         end
         if subname_ui == "" or subname_ui == nil then
-            table.insert(camposVazios, "UI Subname (subname_ui)")
+            table.insert(emptyFields, "UI Subtitle (subname_ui)")
         end
         if crrkey_key == "" or crrkey_key == nil then
-            table.insert(camposVazios, "Current Key (crrkey_key)")
+            table.insert(emptyFields, "Current Key (crrkey_key)")
         end
         if linkkey_key == "" or linkkey_key == nil then
-            table.insert(camposVazios, "Key Link (linkkey_key)")
+            table.insert(emptyFields, "Key Link (linkkey_key)")
         end
 
-        if #camposVazios > 0 then
+        if #emptyFields > 0 then
             Fluent:Notify({
-                Title = "Required fields are empty!",
-                Content = "Please fill in the following fields:\n" .. table.concat(camposVazios, "\n"),
+                Title = "Missing Required Fields!",
+                Content = "Please fill in the following fields:\n" .. table.concat(emptyFields, "\n"),
                 Duration = 5
             })
             return
         end
 
         local script = gerarGC()
-        local sucesso, erro = pcall(function()
+        local success, err = pcall(function()
             loadstring(script)()
         end)
-        if not sucesso then
-            warn("Error loading the hub:", erro)
+        if not success then
+            warn("Error while loading the hub:", err)
         end
     end
 })
