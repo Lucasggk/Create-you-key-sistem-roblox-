@@ -133,24 +133,42 @@ cratesys:AddInput("", {
 })
 
 
-copysys:AddButton({
-    Title = "Copy Settings",
-    Callback = function()
-        local G = {                
-        "_G.uiname = \"" .. tostring(name_ui) .. "\"",       
-        "_G.subname = \"" .. tostring(subname_ui) .. "\"",    
-        "_G.sizeui1 = " .. tonumber(size_ui1),                  
-        "_G.sizeui2 = " .. tonumber(size_ui2),                  
-        "_G.tabsizeui = " .. tonumber(tabsize_ui),            
-        "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",   
-        "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",    
+local gc = "" 
+
+local function gerarGC()
+    local G = {
+        "_G.uiname = \"" .. tostring(name_ui) .. "\"",
+        "_G.subname = \"" .. tostring(subname_ui) .. "\"",
+        "_G.sizeui1 = " .. tonumber(size_ui1),
+        "_G.sizeui2 = " .. tonumber(size_ui2),
+        "_G.tabsizeui = " .. tonumber(tabsize_ui),
+        "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",
+        "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",
         "_G.ldscript = [[  " .. tostring(script_load) .. "  ]]",
-        'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistemEUA.lua"))()',
-                    }
-            
+        'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistemBR.lua"))()',
+    }
 
-        local gc = table.concat(G, "\n")
+    gc = table.concat(G, "\n")
+    return gc
+end
 
+copysys:AddButton({
+    Title = "Copy Key System Configuration",
+    Callback = function()
+        gerarGC()
         setclipboard(gc)
+    end
+})
+
+copysys:AddButton({
+    Title = "Run Your Key System for Testing",
+    Callback = function()
+        local script = gerarGC()
+        local sucesso, erro = pcall(function()
+            loadstring(script)()
+        end)
+        if not sucesso then
+            warn("Error loading the hub:", erro)
+        end
     end
 })
