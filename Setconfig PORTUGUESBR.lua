@@ -131,6 +131,7 @@ local gc = ""
 
 local function gerarGC()
     local G = {
+        'local gc = ""',
         "_G.uiname = \"" .. tostring(name_ui) .. "\"",
         "_G.subname = \"" .. tostring(subname_ui) .. "\"",
         "_G.sizeui1 = " .. tonumber(size_ui1),
@@ -149,13 +150,37 @@ end
 copysys:AddButton({
     Title = "Copiar Configurações do sistema de key",
     Callback = function()
+        local camposVazios = {}
+
+        if name_ui == "" or name_ui == nil then
+            table.insert(camposVazios, "Nome da UI (name_ui)")
+        end
+        if subname_ui == "" or subname_ui == nil then
+            table.insert(camposVazios, "Subnome da UI (subname_ui)")
+        end
+        if crrkey_key == "" or crrkey_key == nil then
+            table.insert(camposVazios, "Chave Atual (crrkey_key)")
+        end
+        if linkkey_key == "" or linkkey_key == nil then
+            table.insert(camposVazios, "Link da Chave (linkkey_key)")
+        end
+
+        if #camposVazios > 0 then
+            Fluent:Notify({
+                Title = "Campos obrigatórios vazios!",
+                Content = "Preencha os seguintes campos:\n" .. table.concat(camposVazios, "\n"),
+                Duration = 5
+            })
+            return
+        end
+
         gerarGC()
         setclipboard(gc)
     end
 })
 
 copysys:AddButton({
-    Title = "Executa seu sistema de key para testes",
+    Title = "Executar seu sistema de key para testes",
     Callback = function()
         local camposVazios = {}
 
@@ -166,10 +191,10 @@ copysys:AddButton({
             table.insert(camposVazios, "Subnome da UI (subname_ui)")
         end
         if crrkey_key == "" or crrkey_key == nil then
-            table.insert(camposVazios, "Chave atual (crrkey_key)")
+            table.insert(camposVazios, "Chave Atual (crrkey_key)")
         end
         if linkkey_key == "" or linkkey_key == nil then
-            table.insert(camposVazios, "Link da key (linkkey_key)")
+            table.insert(camposVazios, "Link da Chave (linkkey_key)")
         end
 
         if #camposVazios > 0 then
