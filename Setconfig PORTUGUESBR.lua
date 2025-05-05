@@ -127,24 +127,29 @@ cratesys:AddInput("", {
     end
 })
 
-local gc = "" -- Define gc fora das funções, acessível por ambos
+local gc = "" -- Variável global compartilhada
+
+local function gerarGC()
+    local G = {
+        "_G.uiname = \"" .. tostring(name_ui) .. "\"",
+        "_G.subname = \"" .. tostring(subname_ui) .. "\"",
+        "_G.sizeui1 = " .. tonumber(size_ui1),
+        "_G.sizeui2 = " .. tonumber(size_ui2),
+        "_G.tabsizeui = " .. tonumber(tabsize_ui),
+        "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",
+        "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",
+        "_G.ldscript = [[  " .. tostring(script_load) .. "  ]]",
+        'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistemBR.lua"))()',
+    }
+
+    gc = table.concat(G, "\n")
+    return gc
+end
 
 copysys:AddButton({
     Title = "Copiar Configuração",
     Callback = function()
-        local G = {                
-            "_G.uiname = \"" .. tostring(name_ui) .. "\"",
-            "_G.subname = \"" .. tostring(subname_ui) .. "\"",
-            "_G.sizeui1 = " .. tonumber(size_ui1),
-            "_G.sizeui2 = " .. tonumber(size_ui2),
-            "_G.tabsizeui = " .. tonumber(tabsize_ui),
-            "_G.keylink = \"" .. tostring(linkkey_key) .. "\"",
-            "_G.crrkey = \"" .. tostring(crrkey_key) .. "\"",
-            "_G.ldscript = [[  " .. tostring(script_load) .. "  ]]",
-            'loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Your%20key%20sistemBR.lua"))()',
-        }
-
-        gc = table.concat(G, "\n") -- Atribui à variável global
+        gerarGC()
         setclipboard(gc)
     end
 })
@@ -152,10 +157,12 @@ copysys:AddButton({
 copysys:AddButton({
     Title = "Carrega seu hub",
     Callback = function()
-        if gc and gc ~= "" then
-            loadstring(gc)()
-        else
-            warn("Configuração não copiada ainda!")
+        local script = gerarGC()
+        local sucesso, erro = pcall(function()
+            loadstring(script)()
+        end)
+        if not sucesso then
+            warn("Erro ao carregar o hub:", erro)
         end
     end
 })
