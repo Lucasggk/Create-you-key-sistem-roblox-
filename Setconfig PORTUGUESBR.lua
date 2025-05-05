@@ -127,7 +127,7 @@ cratesys:AddInput("", {
     end
 })
 
-local gc = "" -- Variável global compartilhada
+local gc = "" 
 
 local function gerarGC()
     local G = {
@@ -147,7 +147,7 @@ local function gerarGC()
 end
 
 copysys:AddButton({
-    Title = "Copiar Configuração",
+    Title = "Copiar Configurações do sistema de key",
     Callback = function()
         gerarGC()
         setclipboard(gc)
@@ -155,7 +155,7 @@ copysys:AddButton({
 })
 
 copysys:AddButton({
-    Title = "Carrega seu hub",
+    Title = "Executa seu sistema de key para testes",
     Callback = function()
         local script = gerarGC()
         local sucesso, erro = pcall(function()
