@@ -6,6 +6,11 @@
 
 ## BR and US version | MADE BY LUCAS
 
-### loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Setconfig%20INGLESH.lua"))()
-
-### loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Setconfig%20PORTUGUESBR.lua"))()
+### Eua
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Setconfig%20INGLESH.lua"))()
+```
+### Br
+```lua
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/Create-you-key-sistem-roblox-/main/Setconfig%20PORTUGUESBR.lua"))()
+```
