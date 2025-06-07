@@ -1,8 +1,10 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasggk/BlueLock/refs/heads/main/Fix.name.ui.lua"))()
+
 local Fluent = loadstring(game:HttpGet("https://raw.githubusercontent.com/discoart/FluentPlus/refs/heads/main/release.lua", true))()
  
 local Window = Fluent:CreateWindow({
     Title = "Sistema de Chave",
-    SubTitle = "     feito por Lucas",
+    SubTitle = "feito por Lucas",
     TabWidth = 145,
     Size = UDim2.fromOffset(550, 370),
     Acrylic = false,
